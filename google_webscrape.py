@@ -8,23 +8,9 @@ from PIL import Image
 import hashlib
 
 
-# This is the path I use
-#DRIVER_PATH = 'D:\Webscraping\chromedriver_win32'
-# Put the path for your ChromeDriver here according to google chrome version 
-# https://chromedriver.chromium.org/downloads
-
-
-#how to use chrome driver 
+#Chrome driver path  
 DRIVER_PATH = "D:\Webscraping\chromedriver_win32\chromedriver"
 
-#wd = webdriver.Chrome(executable_path=DRIVER_PATH)
-#wd.get('https://google.com')
-
-#Type the keyword to be entered in google's search bar  
-# search_box = wd.find_element_by_css_selector('input.gLFyf')
-# search_box.send_keys('Dogs')
-
-################################################################################################################
 
 def fetch_image_urls(query:str, max_links_to_fetch:int, wd:webdriver, sleep_between_interactions:int=1):
     def scroll_to_end(wd):
@@ -44,9 +30,7 @@ def fetch_image_urls(query:str, max_links_to_fetch:int, wd:webdriver, sleep_betw
         scroll_to_end(wd)
 
         # get all image thumbnail results
-        thumbnail_results = wd.find_elements_by_css_selector("img.Q4LuWd")          # all individual images in google have class =img.rg_i.Q4LuWd.tx8vtf 
-        print("Thumbnail Results______________________________________________________________")
-        print(type(thumbnail_results))
+        thumbnail_results = wd.find_elements_by_css_selector("img.Q4LuWd")          # all individual images in google have class =img.rg_i.Q4LuWd.tx8vtf
         number_results = len(thumbnail_results)
 
         
@@ -91,7 +75,6 @@ def fetch_image_urls(query:str, max_links_to_fetch:int, wd:webdriver, sleep_betw
     return image_urls
 
 
-###########################################################################################################################
 def persist_image(folder_path:str,url:str):
     try:
         image_content = requests.get(url).content
