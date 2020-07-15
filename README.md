@@ -1,5 +1,5 @@
 # Webscrape
-Webscraping medical information 
+1. wescrape.py :Webscraping medical information 
 Webscrape information of A-Z drugs of medindia.net and save it in a csv file 
 
 2. google_webscrape.py :Webscrape all the images of any google webpage using selenium for this you will first need to google webdriver
